@@ -6,9 +6,100 @@
     <title>TV Show Project | My Name (My GitHub username)</title>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script src="components/episode.js"></script>
   </head>
 
   <body>
+    <template id="episode">
+      <style>
+
+        h1 {
+          margin: 0;
+          border-radius: 10px;
+          padding: 0.5rem;
+          background-color: #333333;
+          color: #ffffff;
+        }
+
+        ul {
+          margin: 0;
+          padding: 0 1rem 0.5rem 1.5rem;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          list-style-type: none;
+        }
+
+        li {
+          padding: 0.25rem;
+          margin: 0.25rem;
+          border-radius: 5px;
+        }
+
+        .episode-season {
+          background-color: #c6e2e9;
+        }
+
+        .episode-airdate {
+          background-color: #f1ffc4;
+        }
+
+        .episode-airtime {
+          background-color: #ffcaaf;
+        }
+
+        .episode-runtime {
+          background-color: #dab894;
+        }
+
+        .flex {
+          display: flex;
+        }
+        
+        .flex-row {
+          flex-direction: row;
+        }
+
+        .flex-column {
+          flex-direction: column;
+        }
+
+        .detail-title {
+          font-weight: bold;
+        }
+
+        .episode-image {
+          align-self: center;
+        }
+
+        .episode-content {
+          padding: 0.75rem;
+        }
+
+        .episode-details {
+          background-color: white;
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+
+      </style>
+      <section class="episode-details">
+        <h1 class="episode-name"><slot name="episode-name"></slot></h2>
+        <div class="flex flex-row episode-content">
+          <div class="episode-image"><slot name="episode-image"></slot></div>
+          <div class="flex flex-column">
+            <ul class="episode-info">
+              <li class="episode-season"><span class="detail-title">Season: </span><slot name="episode-season"></slot></li>
+              <li class="episode-airdate"><span class="detail-title">Air Date: </span><slot name="episode-airdate"></slot></li>
+              <li class="episode-airtime"><span class="detail-title">Air Time: </span><slot name="episode-airtime"></slot></li>
+              <li class="episode-runtime"><span class="detail-title">Run Time: </span><slot name="episode-runtime"></slot></li>
+            </ul>
+            <div class="episode-summary"><slot name="episode-summary"></slot></div>
+          </div>
+        </div>
+      </section>
+    </template>
     <div id="root">
     </div>
 
