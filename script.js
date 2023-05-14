@@ -5,7 +5,7 @@ function setup() {
 }
 
 function makePageForEpisodes(episodeList) {
-  const rootElem = document.getElementById("root");
+  const rootElem = document.querySelector('main');
   for (let episode of episodeList) {
     let seasonTag = `S${episode.season.toString().padStart(2, '0')}E${episode.number.toString().padStart(2, '0')}`;
     let airDate = new Date(episode.airdate);
