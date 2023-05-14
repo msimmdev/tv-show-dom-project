@@ -7,13 +7,36 @@
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/rabbid-highway-sign-caps" type="text/css"/>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <script src="components/episode.js"></script>
+    <script src="episodes.js"></script>
+    <script src="components/episode-details.js"></script>
+    <script src="components/episode-list.js"></script>
   </head>
 
   <body>
+    <template id="episode-list">
+      <style>
+        :host {
+          font-family: Verdana, Helvetica, sans-serif;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-content: space-between;
+        }
+
+        p {
+          margin: 0 1rem 0 1.5rem;
+        }
+
+        episode-details {
+          width: 50%;
+          box-sizing: border-box;
+          padding: 1rem;
+        }
+
+      </style>
+    </template>
     <template id="episode">
       <style>
-
 
         h2 {
           margin: 0;
@@ -108,6 +131,8 @@
       </h1>
     </header>
     <main>
+      <input type="text" onchange="document.querySelector('episode-list').setAttribute('search-term', this.value)" />
+      <episode-list search-term=""></episode-list>
     </main>
     <footer>
       <p>All Data Sourced From <a href="https://www.tvmaze.com/">TVmaze</a></p>
@@ -115,8 +140,5 @@
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
-
-    <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
   </body>
 </html>
